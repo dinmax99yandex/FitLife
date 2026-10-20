@@ -89,9 +89,22 @@ def user_bmi(user_weight, user_height):
 
 # Подсчет воды: вес * 30 мл
 # TODO: Рассчитай water_needed
-
+def user_water_intake(user_weight):
+    agreement = input("Хотите рассчитать вашу суточную норму потребления воды? (да/нет): ").strip().lower()
+    if agreement == "да":
+        WATER_PER_KG = 30
+        # расчёт нормы потребления воды
+        water_ml = user_weight * WATER_PER_KG
+        # Конвертация из миллилитров в литры
+        water_l = water_ml / 1000
+        water_l = round(water_l, 3)
+        return water_l
+    else:
+        print("Хорошо расчет нормы потребления воды будет пропущен.")
 
 # 4. Вывод красивого результата
 # TODO: Используй f-строку, чтобы вывести приветствие, например: "Привет, Иван!"
 # TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
+
+
 print("Расчет окончен. Будьте здоровы!")

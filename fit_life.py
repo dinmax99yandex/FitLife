@@ -35,7 +35,44 @@ def define_user_age():
 # 2. Сбор данных
 # TODO: Запроси вес (в кг) и сохрани в user_weight (тип float)
 # TODO: Запроси рост (в метрах, например 1.75) и сохрани в user_height (тип float)
+def user_weight():
+    while True:
+        user_weight = input("Введите ваш вес в килограммах, используя точку, например 70.5: ")
+        if user_weight.strip() == "":
+            print("Ошибка: вес не может быть пустым.")
+            continue
+        elif not user_weight.replace('.', '', 1).isdigit():
+            print("Ошибка: вес должен быть числом.")
+            continue
+        user_weight = float(user_weight)
+        user_weight = round(user_weight, 2)
+        if user_weight <= 0 or user_weight > 400:
+            print("Ошибка: вес должен быть положительным числом и не превышать 400 кг.")
+            continue
+        else:
+            print(f"Спасибо! Ваш вес: {user_weight} кг.")
+            break
+    return user_weight
+        
 
+def user_height():
+    while True:
+        user_height = input("Введите рост в метрах, используя точку, например 1.75: ")
+        if user_height.strip() == "":
+            print("Ошибка: рост не может быть пустым.")
+            continue
+        elif not user_height.replace('.', '', 1).isdigit():
+            print("Ошибка: рост должен быть числом.")
+            continue
+        user_height = float(user_height)
+        user_height = round(user_height, 2)
+        if user_height <= 0 or user_height > 2.50:
+            print("Ошибка: рост должен быть положительным числом и не превышать 2.50")
+            continue
+        else:
+            print(f"Спасибо! Ваш рост: {user_height} м.")
+            break
+    return user_height
 
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
 # Формула ИМТ: вес разделить на (рост в квадрате)

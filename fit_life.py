@@ -77,7 +77,15 @@ def user_height():
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
 # Формула ИМТ: вес разделить на (рост в квадрате)
 # TODO: Рассчитай bmi (Индекс массы тела)
-
+def user_bmi(user_weight, user_height):
+    agreement = input("Хотите рассчитать ваш индекс массы тела (BMI)? (да/нет): ").strip().lower()
+    if agreement == "да":
+        # расчёт индекса массы тела
+        bmi = user_weight / (user_height ** 2)
+        bmi = round(bmi, 1)
+        return bmi
+    else:
+        print("Хорошо расчет BMI будет пропущен.")
 
 # Подсчет воды: вес * 30 мл
 # TODO: Рассчитай water_needed

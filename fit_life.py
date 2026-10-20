@@ -3,8 +3,10 @@
 
 # 1. Знакомство
 # TODO: Спроси у пользователя имя и сохрани в переменную user_name
-# TODO: Спроси возраст и сохрани в переменную user_age (не забудь преобразовать в число)
-def define_user_name():
+# TODO: Спроси возраст и сохрани в переменную user_age (не забудь преобразовать
+# в число)
+# Функция для запроса имени пользователя с проверкой на корректность ввода
+def user_name(): 
     while True:
         user_name = input("Здравствуйте! Представьтесь, пожалуйста: ")
          # Удаляем пробелы и проверяем, остались ли только буквы
@@ -16,25 +18,29 @@ def define_user_name():
             print("Ошибка: имя должно содержать только буквы и пробелы.")
     return user_name
 
-def define_user_age():           
+# Функция для запроса возраста пользователя с проверкой на корректность ввода
+def user_age():           
     user_age = input("Сколько вам полных лет? ")
     if user_age.strip() == "":
         print("Ошибка: возраст не может быть пустым.")
-        return define_user_age()
+        return user_age()
     elif not user_age.isdigit():    
         print("Ошибка: возраст должен быть числом.")
-        return define_user_age()
+        return user_age()
     user_age = int(user_age)
     if user_age < 0 or user_age > 125:
         print("Ошибка: возраст не может быть отрицательным или превышать 125.")
-        return define_user_age()
+        return user_age()
     else:
         print(f"Спасибо! Ваш возраст: {user_age} лет.")
         return user_age
+    
 
 # 2. Сбор данных
 # TODO: Запроси вес (в кг) и сохрани в user_weight (тип float)
-# TODO: Запроси рост (в метрах, например 1.75) и сохрани в user_height (тип float)
+# TODO: Запроси рост (в метрах, например 1.75) и сохрани в user_height
+# (тип float)
+# Функция для запроса веса пользователя с проверкой на корректность ввода
 def user_weight():
     while True:
         user_weight = input("Введите ваш вес в килограммах, используя точку," \
@@ -56,7 +62,7 @@ def user_weight():
             break
     return user_weight
         
-
+# Функция для запроса роста пользователя с проверкой на корректность ввода
 def user_height():
     while True:
         user_height = input("Введите рост в метрах, используя точку," \
@@ -81,6 +87,8 @@ def user_height():
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
 # Формула ИМТ: вес разделить на (рост в квадрате)
 # TODO: Рассчитай bmi (Индекс массы тела)
+# Функция для расчета индекса массы тела (BMI) 
+# с проверкой согласия пользователя
 def user_bmi(user_weight, user_height):
     agreement = input("Хотите рассчитать ваш индекс массы тела (BMI)?"
     " (да/нет): ").strip().lower()
@@ -94,6 +102,8 @@ def user_bmi(user_weight, user_height):
 
 # Подсчет воды: вес * 30 мл
 # TODO: Рассчитай water_needed
+# Функция для расчета суточной нормы потребления воды
+# с проверкой согласия пользователя
 def user_water_intake(user_weight):
     agreement = input("Хотите рассчитать вашу суточную норму потребления воды?"
     "(да/нет): ").strip().lower()
@@ -111,7 +121,7 @@ def user_water_intake(user_weight):
 # 4. Вывод красивого результата
 # TODO: Используй f-строку, чтобы вывести приветствие, например: "Привет, Иван!"
 # TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
-
+# Функция для вывода отчета с данными пользователя
 def report_user_data(name, age, weight, user_height, bmi, water_l):
     print("\n----- Ваши данные -----")
     print(f"Отчет для пользователя: {user_name}, ({user_age}) л.")
@@ -128,8 +138,8 @@ def report_user_data(name, age, weight, user_height, bmi, water_l):
     print("Расчет окончен. Будьте здоровы!")
 
 
-user_name = define_user_name()
-user_age = define_user_age()
+user_name = user_name()
+user_age = user_age()
 weight = user_weight()
 height = user_height()
 bmi = user_bmi(weight, height)

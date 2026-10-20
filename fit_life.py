@@ -14,7 +14,6 @@ def user_name():
 # Удаляем пробелы и проверяем, остались ли только буквы
         if user_name.replace(" ", "").isalpha():
             user_name = user_name.title()
-            print(f"Приятно познакомиться, {user_name}!")
             break
         else:
             print("Ошибка: имя должно содержать только буквы и пробелы.")
@@ -35,7 +34,6 @@ def user_age():
         print("Ошибка: возраст не может быть отрицательным или превышать 125.")
         return user_age()
     else:
-        print(f"Спасибо! Ваш возраст: {user_age} лет.")
         return user_age
 
 
@@ -63,7 +61,6 @@ def user_weight():
                   "и не превышать 400 кг.")
             continue
         else:
-            print(f"Спасибо! Ваш вес: {user_weight} кг.")
             break
     return user_weight
 
@@ -89,7 +86,6 @@ def user_height():
                   " и не превышать 2.50")
             continue
         else:
-            print(f"Спасибо! Ваш рост: {user_height} м.")
             break
     return user_height
 
@@ -101,14 +97,9 @@ def user_bmi(user_weight, user_height):
     """Функция для расчета индекса массы тела (BMI)
     с проверкой согласия пользователя
     """
-    agreement = input("Хотите рассчитать ваш индекс массы тела (BMI)?"
-                      " (да/нет): ").strip().lower()
-    if agreement == "да":
-        # расчёт индекса массы тела
-        bmi = user_weight / (user_height ** 2)
-        return round(bmi, 1)
-    else:
-        print("Хорошо расчет BMI будет пропущен.")
+# расчёт индекса массы тела
+    bmi = user_weight / (user_height ** 2)
+    return round(bmi, 1)
 
 
 # Подсчет воды: вес * 30 мл
@@ -117,17 +108,12 @@ def user_water_intake(user_weight):
     """Функция для расчета суточной нормы потребления воды
     с проверкой согласия пользователя
     """
-    agreement = input("Хотите рассчитать вашу суточную норму потребления воды?"
-                      "(да/нет): ").strip().lower()
-    if agreement == "да":
-        WATER_PER_KG = 30
-        # расчёт нормы потребления воды
-        water_ml = user_weight * WATER_PER_KG
-        # Конвертация из миллилитров в литры
-        water_l = water_ml / 1000
-        return round(water_l, 3)
-    else:
-        print("Хорошо расчет нормы потребления воды будет пропущен.")
+    WATER_PER_KG = 30
+# расчёт нормы потребления воды
+    water_ml = user_weight * WATER_PER_KG
+# Конвертация из миллилитров в литры
+    water_l = water_ml / 1000
+    return round(water_l, 3)
 
 
 # 4. Вывод красивого результата

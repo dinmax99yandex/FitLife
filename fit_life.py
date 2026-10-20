@@ -37,7 +37,8 @@ def define_user_age():
 # TODO: Запроси рост (в метрах, например 1.75) и сохрани в user_height (тип float)
 def user_weight():
     while True:
-        user_weight = input("Введите ваш вес в килограммах, используя точку, например 70.5: ")
+        user_weight = input("Введите ваш вес в килограммах, используя точку," \
+        " например 70.5: ")
         if user_weight.strip() == "":
             print("Ошибка: вес не может быть пустым.")
             continue
@@ -47,7 +48,8 @@ def user_weight():
         user_weight = float(user_weight)
         user_weight = round(user_weight, 2)
         if user_weight <= 0 or user_weight > 400:
-            print("Ошибка: вес должен быть положительным числом и не превышать 400 кг.")
+            print("Ошибка: вес должен быть положительным числом " \
+            "и не превышать 400 кг.")
             continue
         else:
             print(f"Спасибо! Ваш вес: {user_weight} кг.")
@@ -57,7 +59,8 @@ def user_weight():
 
 def user_height():
     while True:
-        user_height = input("Введите рост в метрах, используя точку, например 1.75: ")
+        user_height = input("Введите рост в метрах, используя точку," \
+        "например 1.75: ")
         if user_height.strip() == "":
             print("Ошибка: рост не может быть пустым.")
             continue
@@ -67,7 +70,8 @@ def user_height():
         user_height = float(user_height)
         user_height = round(user_height, 2)
         if user_height <= 0 or user_height > 2.50:
-            print("Ошибка: рост должен быть положительным числом и не превышать 2.50")
+            print("Ошибка: рост должен быть положительным числом" \
+            " и не превышать 2.50")
             continue
         else:
             print(f"Спасибо! Ваш рост: {user_height} м.")
@@ -78,7 +82,8 @@ def user_height():
 # Формула ИМТ: вес разделить на (рост в квадрате)
 # TODO: Рассчитай bmi (Индекс массы тела)
 def user_bmi(user_weight, user_height):
-    agreement = input("Хотите рассчитать ваш индекс массы тела (BMI)? (да/нет): ").strip().lower()
+    agreement = input("Хотите рассчитать ваш индекс массы тела (BMI)?"
+    " (да/нет): ").strip().lower()
     if agreement == "да":
         # расчёт индекса массы тела
         bmi = user_weight / (user_height ** 2)
@@ -90,7 +95,8 @@ def user_bmi(user_weight, user_height):
 # Подсчет воды: вес * 30 мл
 # TODO: Рассчитай water_needed
 def user_water_intake(user_weight):
-    agreement = input("Хотите рассчитать вашу суточную норму потребления воды? (да/нет): ").strip().lower()
+    agreement = input("Хотите рассчитать вашу суточную норму потребления воды?"
+    "(да/нет): ").strip().lower()
     if agreement == "да":
         WATER_PER_KG = 30
         # расчёт нормы потребления воды
@@ -106,7 +112,7 @@ def user_water_intake(user_weight):
 # TODO: Используй f-строку, чтобы вывести приветствие, например: "Привет, Иван!"
 # TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
 
-def report_user_data(user_name, user_age, user_weight, user_height, bmi, water_l):
+def report_user_data(name, age, weight, user_height, bmi, water_l):
     print("\n----- Ваши данные -----")
     print(f"Отчет для пользователя: {user_name}, ({user_age}) л.")
     print(f"Вес: {user_weight} кг")

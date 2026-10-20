@@ -11,7 +11,7 @@ def user_name():
     """
     while True:
         user_name = input("Здравствуйте! Представьтесь, пожалуйста: ")
-         # Удаляем пробелы и проверяем, остались ли только буквы
+# Удаляем пробелы и проверяем, остались ли только буквы
         if user_name.replace(" ", "").isalpha():
             user_name = user_name.title()
             print(f"Приятно познакомиться, {user_name}!")
@@ -27,7 +27,7 @@ def user_age():
     if user_age.strip() == "":
         print("Ошибка: возраст не может быть пустым.")
         return user_age()
-    elif not user_age.isdigit():    
+    elif not user_age.isdigit():
         print("Ошибка: возраст должен быть числом.")
         return user_age()
     user_age = int(user_age)
@@ -37,19 +37,19 @@ def user_age():
     else:
         print(f"Спасибо! Ваш возраст: {user_age} лет.")
         return user_age
-    
+
 
 # 2. Сбор данных
 # TODO: Запроси вес (в кг) и сохрани в user_weight (тип float)
 # TODO: Запроси рост (в метрах, например 1.75) и сохрани в user_height
 # (тип float)
 def user_weight():
-    """Функция для запроса веса пользователя 
+    """Функция для запроса веса пользователя
     с проверкой на корректность ввода
     """
     while True:
-        user_weight = input("Введите ваш вес в килограммах, используя точку," \
-        " например 70.5: ")
+        user_weight = input("Введите ваш вес в килограммах, используя точку,"
+                            " например 70.5: ")
         if user_weight.strip() == "":
             print("Ошибка: вес не может быть пустым.")
             continue
@@ -59,22 +59,23 @@ def user_weight():
         user_weight = float(user_weight)
         user_weight = round(user_weight, 2)
         if user_weight <= 0 or user_weight > 400:
-            print("Ошибка: вес должен быть положительным числом " \
-            "и не превышать 400 кг.")
+            print("Ошибка: вес должен быть положительным числом "
+                  "и не превышать 400 кг.")
             continue
         else:
             print(f"Спасибо! Ваш вес: {user_weight} кг.")
             break
     return user_weight
-        
+
+
 # Функция для запроса роста пользователя с проверкой на корректность ввода
 def user_height():
     """Функция для запроса роста пользователя
     с проверкой на корректность ввода
     """
     while True:
-        user_height = input("Введите рост в метрах, используя точку," \
-        "например 1.75: ")
+        user_height = input("Введите рост в метрах, используя точку,"
+                            "например 1.75: ")
         if user_height.strip() == "":
             print("Ошибка: рост не может быть пустым.")
             continue
@@ -84,13 +85,14 @@ def user_height():
         user_height = float(user_height)
         user_height = round(user_height, 2)
         if user_height <= 0 or user_height > 2.50:
-            print("Ошибка: рост должен быть положительным числом" \
-            " и не превышать 2.50")
+            print("Ошибка: рост должен быть положительным числом"
+                  " и не превышать 2.50")
             continue
         else:
             print(f"Спасибо! Ваш рост: {user_height} м.")
             break
     return user_height
+
 
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
 # Формула ИМТ: вес разделить на (рост в квадрате)
@@ -100,14 +102,14 @@ def user_bmi(user_weight, user_height):
     с проверкой согласия пользователя
     """
     agreement = input("Хотите рассчитать ваш индекс массы тела (BMI)?"
-    " (да/нет): ").strip().lower()
+                      " (да/нет): ").strip().lower()
     if agreement == "да":
         # расчёт индекса массы тела
         bmi = user_weight / (user_height ** 2)
-        bmi = round(bmi, 1)
-        return bmi
+        return round(bmi, 1)
     else:
         print("Хорошо расчет BMI будет пропущен.")
+
 
 # Подсчет воды: вес * 30 мл
 # TODO: Рассчитай water_needed
@@ -123,13 +125,14 @@ def user_water_intake(user_weight):
         water_ml = user_weight * WATER_PER_KG
         # Конвертация из миллилитров в литры
         water_l = water_ml / 1000
-        water_l = round(water_l, 3)
-        return water_l
+        return round(water_l, 3)
     else:
         print("Хорошо расчет нормы потребления воды будет пропущен.")
+        
 
 # 4. Вывод красивого результата
-# TODO: Используй f-строку, чтобы вывести приветствие, например: "Привет, Иван!"
+# TODO: Используй f-строку, чтобы вывести приветствие,
+# например: "Привет, Иван!"
 # TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
 def report_user_data(name, age, weight, user_height, bmi, water_l):
     """Функция для вывода отчета с данными пользователя"""

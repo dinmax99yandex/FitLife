@@ -106,5 +106,26 @@ def user_water_intake(user_weight):
 # TODO: Используй f-строку, чтобы вывести приветствие, например: "Привет, Иван!"
 # TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
 
+def report_user_data(user_name, user_age, user_weight, user_height, bmi, water_l):
+    print("\n----- Ваши данные -----")
+    print(f"Отчет для пользователя: {user_name}, ({user_age}) л.")
+    print(f"Вес: {user_weight} кг")
+    print(f"Рост: {user_height} м")
+    if bmi is not None:
+        print(f"Твой Индекс Массы Тела: {bmi:.1f}")
+    else:
+        print("BMI: расчет пропущен")
+    if water_l is not None:
+        print(f"Рекомендуемая норма воды: {water_l:.3f} л")
+    else:
+        print("Суточная норма потребления воды: расчет пропущен")
+    print("Расчет окончен. Будьте здоровы!")
 
-print("Расчет окончен. Будьте здоровы!")
+
+user_name = define_user_name()
+user_age = define_user_age()
+weight = user_weight()
+height = user_height()
+bmi = user_bmi(weight, height)
+water_l = user_water_intake(weight)
+report_user_data(user_name, user_age, weight, height, bmi, water_l)

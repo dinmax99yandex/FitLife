@@ -45,8 +45,8 @@ def user_age(initial_age, max_age):
         return user_age()
     user_age = int(user_age)
     if user_age < initial_age or user_age > max_age:
-        print(f"Ошибка: возраст не может быть отрицательным"
-              "или превышать {max_age}.")
+        print("Ошибка: возраст не может быть отрицательным"
+            f"или превышать {max_age}.")
         return user_age()
     else:
         return user_age
@@ -74,8 +74,8 @@ def user_weight(initial_weight, max_weight):
         user_weight = float(user_weight)
         user_weight = round(user_weight, 2)
         if user_weight <= initial_weight or user_weight > max_weight:
-            print(f"Ошибка: вес должен быть положительным числом "
-                  "и не превышать {max_weight} кг.")
+            print("Ошибка: вес должен быть положительным числом "
+                  f"и не превышать {max_weight} кг.")
             continue
         else:
             break
@@ -90,7 +90,6 @@ def user_height(initial_height, max_height):
     Рост должен быть положительным числом типа float
     больше initial_height = 0 и не больше max_height = 2.50 метра.
     """
-
     while True:
         user_height = input("Введите рост в метрах, используя точку,"
                             "например 1.75: ")
@@ -103,8 +102,8 @@ def user_height(initial_height, max_height):
         user_height = float(user_height)
         user_height = round(user_height, 2)
         if user_height <= initial_height or user_height > max_height:
-            print(f"Ошибка: рост должен быть положительным числом"
-                  " и не превышать {max_height}")
+            print("Ошибка: рост должен быть положительным числом"
+                  f" и не превышать {max_height}")
             continue
         else:
             break
@@ -122,7 +121,6 @@ def user_bmi(user_weight, user_height):
     Returns:
         bmi (float): Индекс массы телы.
     """
-
     bmi = user_weight / (user_height ** 2)
     return round(bmi, 1)
 

@@ -46,7 +46,7 @@ def user_age(initial_age, max_age):
     user_age = int(user_age)
     if user_age < initial_age or user_age > max_age:
         print("Ошибка: возраст не может быть отрицательным"
-            f"или превышать {max_age}.")
+              f"или превышать {max_age}.")
         return user_age()
     else:
         return user_age
